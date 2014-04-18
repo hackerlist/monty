@@ -37,7 +37,7 @@ func (t AppTest) TestListScripts() {
 }
 
 func (t AppTest) TestShowScript() {
-	t.Get("/api/script/1")
+	t.Get("/api/scripts/1")
 	t.AssertOk()
 }
 
