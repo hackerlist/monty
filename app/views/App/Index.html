@@ -24,9 +24,9 @@
 </div>
 
 <script>
-function gethealth(mid, row) {
+function gethealth(token, mid, row) {
 	$.ajax({
-		url: "api/status/" + mid,
+		url: "api/status/" + mid + "?token=" + token,
 	}).done(function(data){
 		var status = $('<td></td>').text(data.healthy);
 		row.append(status);
@@ -34,8 +34,9 @@ function gethealth(mid, row) {
 }
 
 (function worker() {
+	var token = window.location.search.substr(1).split("&")[0].split("=")[1];
 	$.ajax({
-		url: "api/nodes",
+		url: "api/nodes?token="+token,
 		success: function(data) {
 			nodes = data.nodes;
 
@@ -49,7 +50,7 @@ function gethealth(mid, row) {
 				var nametd = $('<td></td>').text(name);
 				row.append(nametd);
 
-				gethealth(mid, row);
+				gethealth(token, mid, row);
 
 				table.append(row);
 			}
