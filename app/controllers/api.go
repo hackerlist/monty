@@ -166,7 +166,7 @@ func (c Api) NewProbe(nid int, name string, frequency float64, sid int) revel.Re
 		NodeId:       int64(nid),
 		Name:         name,
 		Frequency:    frequency,
-		LastRun:      time.Now().Add(-(int64(frequency) * time.Second)),
+		LastRun:      time.Now().Add(-(time.Duration(frequency) * time.Second)),
 		LastResultId: 0,
 		ScriptId:     int64(sid),
 		Arguments:    args.String(),
