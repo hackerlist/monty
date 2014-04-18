@@ -35,6 +35,9 @@ function gethealth(token, mid, row) {
 
 (function worker() {
 	var token = window.location.search.substr(1).split("&")[0].split("=")[1];
+	if(token == undefined){
+		token = "";
+	}
 	$.ajax({
 		url: "api/nodes?token="+token,
 		success: function(data) {
