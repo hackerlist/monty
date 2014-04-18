@@ -10,3 +10,5 @@ trap cleanup SIGINT SIGQUIT ERR
 docker build -t monty-$BUILD_NUMBER docker/
 docker run -t monty-$BUILD_NUMBER docker/runtests
 
+cleanup
+
