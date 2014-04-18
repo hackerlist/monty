@@ -83,6 +83,12 @@ func InitDB() {
 			panic(err)
 		}
 	}
+
+	probe := &models.Probe{0, demoNode.Id, "http", 60.0, time.Now(), 0, 1, `{ "Url": "https://hackerlist.net/" }`}
+	if err := Dbm.Insert(probe); err != nil {
+		panic(err)
+	}
+
 }
 
 type GorpController struct {
