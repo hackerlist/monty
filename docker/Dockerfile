@@ -33,8 +33,9 @@ RUN service postgresql restart &&\
 # Setup go libraries and app
 ENV PATH $GOPATH/bin:$PATH
 RUN go get launchpad.net/godeps
-RUN mkdir -p $GOPATH/src/github.com/hackerlist
-RUN cd $GOPATH/src/github.com/hackerlist; git clone https://github.com/hackerlist/monty
+RUN mkdir -p $GOPATH/src/github.com/hackerlist/monty
+ADD ../ $GOPATH/src/github.com/hackerlist/monty/
+#RUN cd $GOPATH/src/github.com/hackerlist; git clone https://github.com/hackerlist/monty
 
 WORKDIR /root/src/github.com/hackerlist/monty
 RUN go get github.com/revel/cmd/revel
