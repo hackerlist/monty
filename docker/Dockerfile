@@ -45,10 +45,10 @@ RUN godeps -u $GOPATH/src/github.com/hackerlist/monty/dependencies.tsv
 # Setup daemontools to run postgres and monty
 RUN mkdir -p /service
 RUN mkdir /service/postgres
-ADD docker/postgres.run /service/postgres/run
+ADD postgres.run /service/postgres/run
 RUN chmod +x /service/postgres/run
 RUN mkdir /service/monty
-ADD docker/monty.run /service/monty/run
+ADD monty.run /service/monty/run
 RUN chmod +x /service/monty/run
 
 # Run daemontools by default
