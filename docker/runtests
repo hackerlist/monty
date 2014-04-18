@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/service/postgres/run &
+
+exec revel test github.com/hackerlist/monty
