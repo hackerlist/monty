@@ -34,7 +34,7 @@ RUN service postgresql restart &&\
 ENV PATH $GOPATH/bin:$PATH
 RUN go get launchpad.net/godeps
 RUN mkdir -p $GOPATH/src/github.com/hackerlist/monty
-ADD ../ $GOPATH/src/github.com/hackerlist/monty/
+ADD . $GOPATH/src/github.com/hackerlist/monty/
 #RUN cd $GOPATH/src/github.com/hackerlist; git clone https://github.com/hackerlist/monty
 
 WORKDIR /root/src/github.com/hackerlist/monty
@@ -46,10 +46,10 @@ RUN godeps -u $GOPATH/src/github.com/hackerlist/monty/dependencies.tsv
 # Setup daemontools to run postgres and monty
 RUN mkdir -p /service
 RUN mkdir /service/postgres
-ADD postgres.run /service/postgres/run
+ADD docker/postgres.run /service/postgres/run
 RUN chmod +x /service/postgres/run
 RUN mkdir /service/monty
-ADD monty.run /service/monty/run
+ADD docker/monty.run /service/monty/run
 RUN chmod +x /service/monty/run
 
 # Run daemontools by default
