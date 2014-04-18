@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec revel run github.com/hackerlist/monty prod
+

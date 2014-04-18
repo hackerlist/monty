@@ -1,14 +1,14 @@
 package controllers
 
 import (
-	"fmt"
-	"time"
-	"io"
 	"bytes"
-	"github.com/coopernurse/gorp"
 	"encoding/json"
+	"fmt"
+	"github.com/coopernurse/gorp"
 	"github.com/hackerlist/monty/app/models"
 	"github.com/revel/revel"
+	"io"
+	"time"
 )
 
 type Response map[string]interface{}
@@ -163,13 +163,13 @@ func (c Api) NewProbe(nid int, name string, frequency float64, sid int) revel.Re
 	}
 
 	newprobe = &models.Probe{
-		NodeId:    int64(nid),
-		Name:      name,
-		Frequency: frequency,
-		LastRun: time.Now(),
+		NodeId:       int64(nid),
+		Name:         name,
+		Frequency:    frequency,
+		LastRun:      time.Now().Add(-(int64(frequency) * time.Second)),
 		LastResultId: 0,
-		ScriptId:  int64(sid),
-		Arguments: args.String(),
+		ScriptId:     int64(sid),
+		Arguments:    args.String(),
 	}
 
 	err = c.Txn.Insert(newprobe)

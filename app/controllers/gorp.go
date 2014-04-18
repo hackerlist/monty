@@ -33,8 +33,8 @@ func InitDB() {
 
 	t = Dbm.AddTableWithName(models.Probe{}, "probe").SetKeys(true, "Id")
 	setColumnSizes(t, map[string]int{
-		"Name": 100,
-		"Arguments":   255,
+		"Name":      100,
+		"Arguments": 255,
 	})
 
 	t = Dbm.AddTableWithName(models.Result{}, "result").SetKeys(true, "Id")
