@@ -1,5 +1,7 @@
 #!/bin/bash
 
+docker build -t monty-$BUILD_NUMBER docker/
+
 cleanup(){
   docker rmi monty-$BUILD_NUMBER
   exit
@@ -7,8 +9,7 @@ cleanup(){
 
 trap cleanup SIGINT SIGQUIT ERR
 
-docker build -t monty-$BUILD_NUMBER docker/
-docker run -t monty-$BUILD_NUMBER docker/runtests
+docker run --rm -t monty-$BUILD_NUMBER docker/runtests
 
 cleanup
 
