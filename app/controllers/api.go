@@ -124,7 +124,7 @@ func (c Api) NodeStatus(mid int) revel.Result {
 
 	r["passing"] = passing
 
-	if count == passing {
+	if count > 0 && count == passing {
 		r["healthy"] = true
 	}
 
