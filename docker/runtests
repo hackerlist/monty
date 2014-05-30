@@ -1,5 +1,9 @@
-#!/bin/sh
+#!/bin/bash -xe
 
-/service/postgres/run &
+#echo "${DB_PORT_5432_TCP_ADDR}:${DB_PORT_5432_TCP_PORT}:postgres:${DB_ENV_USER}:${DB_ENV_PASS}" > $HOME/.pgpass
 
-exec revel test github.com/hackerlist/monty
+#dropdb monty
+#createdb monty
+
+revel test github.com/hackerlist/monty
+

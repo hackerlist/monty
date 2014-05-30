@@ -1,15 +1,21 @@
-#!/bin/bash
+#!/bin/bash -xe
 
 docker build -t monty-$BUILD_NUMBER .
 
 cleanup(){
   docker rmi monty-$BUILD_NUMBER
+  docker stop monty-psql-$BUILD_NUMBER
+  docker rm monty-psql-$BUILD_NUMBER
   exit
 }
 
 trap cleanup SIGINT SIGQUIT ERR
 
-docker run --rm -t monty-$BUILD_NUMBER docker/runtests
+docker run -d --name=monty-psql-$BUILD_NUMBER -p 127.0.0.1:5432:5432 -e USER=monty -e PASS=`openssl rand -hex 10` -e DB=monty paintedfox/postgresql
+
+sleep 5
+
+docker run --rm --link monty-psql-$BUILD_NUMBER:db -t monty-$BUILD_NUMBER docker/runtests
 
 cleanup
 
