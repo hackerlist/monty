@@ -30,6 +30,7 @@ func InitDB() {
 	//		t.ColMap("Password").Transient = true
 	setColumnSizes(t, map[string]int{
 		"Sysname": 100,
+		"Callback": 255,
 	})
 
 	t = Dbm.AddTableWithName(models.Probe{}, "probe").SetKeys(true, "Id")
@@ -64,7 +65,7 @@ func InitDB() {
 	*/
 
 	/* insert our default data. return early if it exists. */
-	demoNode := &models.Node{1, 1, "hackerlist.net"}
+	demoNode := &models.Node{1, 1, "hackerlist.net", "https://hackerlist.net/monty"}
 	if hl, _ := Dbm.Get(&models.Node{}, demoNode.Id); hl != nil {
 		return
 	}
