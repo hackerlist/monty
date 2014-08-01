@@ -1,5 +1,12 @@
-github.com/aarzilli/golua/lua	git	1c344269a2a8202c1d57d2f52e406fb08e615159	
-github.com/stevedonovan/luar	git	8ace2b197ebd0e8292abdee1b641ef04179c6c7e	
+code.google.com/p/go.net	hg	c17ad62118ea511e1051721b429779fa40bddc74	116
+github.com/aarzilli/golua	git	1c344269a2a8202c1d57d2f52e406fb08e615159	
+github.com/agtorre/gocolorize	git	97891670cf81d96a0b1d2d433a556da7727c8849	
 github.com/coopernurse/gorp	git	242be3eec6e4d545d0eca24b5dc71236b71ac656	
+github.com/howeyc/fsnotify	git	441bbc86b167f3c1f4786afae9931403b99fdacf	
 github.com/lib/pq	git	c808a1bb644594ca717ac61f71e6b0e454b835e2	
-github.com/revel/cmd/revel	git	a11342d6e7b475488f6d71d13542dcad20b76ba3	
+github.com/revel/revel	git	df5d88dbece276012b4c7ab45a33a1047c1db108	
+github.com/robfig/config	git	09efbd4617d1beb41b72f6668403b1e383b6a4cf	
+github.com/robfig/cron	git	b024fc5ea0e34bc3f83d9941c8d60b0622bfaca4	
+github.com/robfig/pathtree	git	41257a1839e945fce74afd070e02bab2ea2c776a	
+github.com/stevedonovan/luar	git	8ace2b197ebd0e8292abdee1b641ef04179c6c7e	
+github.com/streadway/simpleuuid	git	6617b501e485b77e61b98cd533aefff9e258b5a7	

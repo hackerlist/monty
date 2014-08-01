@@ -7,8 +7,13 @@ Monty is a server health monitoring and alert service written in Golang.
 
 The following instructions are incomplete, see Dockerfile.
 
+# DB setup
+	su -c "psql" postgres
+	CREATE USER monty WITH PASSWORD 'insecure';
+	CREATE DATABASE monty OWNER monty;
+
 docker build -t monty .
-docker run -p 9000:9000 -d monty
+docker run -e "MONTY_TOKEN=sekrit" -e "MONTY_DBSPEC=postgres://pqgotest:password@localhost/pqgotest" -p 9000:9000 -d monty
 
 ## Endpoints
 
@@ -59,5 +64,4 @@ GET a specific Result by :id
 
 GET a list of all Results
 - /api/results/
-
 

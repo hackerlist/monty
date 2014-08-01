@@ -19,7 +19,6 @@ ADD . $GOPATH/src/github.com/hackerlist/monty/
 WORKDIR /root/src/github.com/hackerlist/monty
 RUN go get -u ./...
 RUN godeps -u dependencies.tsv
-RUN godeps -u $GOPATH/src/github.com/hackerlist/monty/dependencies.tsv
 
 # Setup daemontools to run postgres and monty
 RUN mkdir -p /service
